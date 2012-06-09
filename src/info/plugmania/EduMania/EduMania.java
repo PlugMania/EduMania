@@ -12,29 +12,26 @@ import org.bukkit.entity.Player;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
-
-
 public class EduMania extends JavaPlugin {
 	public Logger log = Logger.getLogger("Minecraft");
 	public Map<String, String> authKeys = new HashMap<String, String>();
-    public List<Player> authedPlayers = new ArrayList<Player>();
-    public util util=new util(this);
-	
+	public List<Player> authedPlayers = new ArrayList<Player>();
+	public util util = new util(this);
+
 	public void onEnable() {
 		PluginManager pm = getServer().getPluginManager();
 		pm.registerEvents(new PlayerListener(this), this);
 	}
-	
-	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-		if(command.getName().equalsIgnoreCase("auth")){
-			if(!util.authPlayer((Player)sender, util.join(args," ",0)))sender.sendMessage("Authentication failed.");
-			else sender.sendMessage("[EduMania]Authentication succeeded.");
-		
-		}
+
+	@Override
+	public boolean onCommand(CommandSender sender, Command command,
+			String label, String[] args) {
+		if(command.getName().equalsIgnoreCase("auth")){}
+
 		return true;
-	
+
 	}
-	
+
 	public void onDisable() {
 		saveConfig();
 	}
