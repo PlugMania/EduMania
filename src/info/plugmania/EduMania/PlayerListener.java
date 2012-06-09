@@ -70,6 +70,11 @@ public class PlayerListener implements Listener{
 	}
 	
 	@EventHandler()		
+	public void onPlayerMoveEvent(PlayerMoveEvent event) {
+		if (!plugin.util.isPlayerAuthed(event.getPlayer())) event.setCancelled(true);		
+	}
+	
+	@EventHandler()		
 	public void onPlayerBedEnter(PlayerBedEnterEvent event) {
 		if (!plugin.util.isPlayerAuthed(event.getPlayer())) event.setCancelled(true);		
 	}

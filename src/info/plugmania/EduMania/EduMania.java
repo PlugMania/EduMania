@@ -19,16 +19,20 @@ public class EduMania extends JavaPlugin {
 	public Map<String, String> authKeys = new HashMap<String, String>();
     public List<Player> authedPlayers = new ArrayList<Player>();
     public util util=new util(this);
-	CommandHandler ch;
 	
 	public void onEnable() {
-		ch=new CommandHandler(this);
 		PluginManager pm = getServer().getPluginManager();
 		pm.registerEvents(new PlayerListener(this), this);
 	}
 	
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-		return ch.onCommand(sender, command, label, args);
+		if(command.getName().equalsIgnoreCase("auth")){
+			if(!util.authPlayer((Player)sender, util.join(args," ",0)))sender.sendMessage("Authentication failed.");
+			else sender.sendMessage("[EduMania]Authentication succeeded.");
+		
+		}
+		return true;
+	
 	}
 	
 	public void onDisable() {
