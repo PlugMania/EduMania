@@ -74,6 +74,11 @@ public class PlayerListener implements Listener{
 		if (!plugin.util.isPlayerAuthed(event.getPlayer())) event.setCancelled(true);		
 	}
 	
+	@EventHandler()		
+	public void onPlayerLogin(PlayerLoginEvent event) {
+//event.
+	}
+	
 	
 	
 	@EventHandler()

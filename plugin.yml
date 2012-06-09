@@ -4,7 +4,7 @@ version: 1.0
 description: >
              A free server package for the educational use of minecraft.
 commands:
-    auth
+    auth:
       description: Used to authenticate all connecting clients.
       usage: /auth key
 
