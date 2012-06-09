@@ -20,6 +20,7 @@ public class EduMania extends JavaPlugin {
     public List<Player> authedPlayers = new ArrayList<Player>();
     public util util=new util(this);
 	CommandHandler ch;
+	
 	public void onEnable() {
 		ch=new CommandHandler(this);
 		PluginManager pm = getServer().getPluginManager();
@@ -27,7 +28,7 @@ public class EduMania extends JavaPlugin {
 	}
 	
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-		return false;
+		return ch.onCommand(sender, command, label, args);
 	}
 	
 	public void onDisable() {
