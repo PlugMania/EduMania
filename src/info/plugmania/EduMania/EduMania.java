@@ -19,6 +19,10 @@ public class EduMania extends JavaPlugin {
 	public util util = new util(this);
 
 	public void onEnable() {
+		if(!getConfig().isSet("keys")) getConfig().createSection("keys", authKeys);
+		for (String s:getConfig().getConfigurationSection("keys").getKeys(false)){
+			authKeys.put(s, getConfig().getConfigurationSection("keys").getString(s));
+		}
 		PluginManager pm = getServer().getPluginManager();
 		pm.registerEvents(new PlayerListener(this), this);
 	}
@@ -34,6 +38,7 @@ public class EduMania extends JavaPlugin {
 	}
 
 	public void onDisable() {
+		getConfig().createSection("keys", authKeys);
 		saveConfig();
 	}
 }
