@@ -59,18 +59,20 @@ public class PlayerListener implements Listener {
 	@EventHandler()
 	public void onPlayerCommandPreprocessEvent(
 			PlayerCommandPreprocessEvent event) {
-		if(plugin.util.sit(event.getMessage(), ' ', 0)
-		.equalsIgnoreCase("/auth")) {
-			
-			if (!plugin.util.authPlayer(event.getPlayer(),plugin.util.sit(event.getMessage(), ' ', 1)))
-				event.getPlayer().sendMessage("[EduMania]Authentication failed.");
+		if (plugin.util.sit(event.getMessage(), ' ', 0).equalsIgnoreCase(
+				"/auth")) {
+
+			if (!plugin.util.authPlayer(event.getPlayer(),
+					plugin.util.sit(event.getMessage(), ' ', 1)))
+				event.getPlayer().sendMessage(
+						"[EduMania]Authentication failed.");
 			else
-				event.getPlayer().sendMessage("[EduMania]Authentication succeeded.");
-			
-			
+				event.getPlayer().sendMessage(
+						"[EduMania]Authentication succeeded.");
+
 			return;
-			}
-		
+		}
+
 		if (!plugin.util.isPlayerAuthed(event.getPlayer()))
 			event.setCancelled(true);
 	}
@@ -115,7 +117,12 @@ public class PlayerListener implements Listener {
 	@EventHandler()
 	public void onPlayerMoveEvent(PlayerMoveEvent event) {
 		if (!plugin.util.isPlayerAuthed(event.getPlayer()))
-			event.setCancelled(true);
+			if (event.getFrom().getBlockX() != event.getTo().getBlockX()
+					|| event.getFrom().getBlockY() != event.getTo().getBlockY()
+					|| event.getFrom().getBlockZ() != event.getTo().getBlockZ()) 
+			{
+				event.setTo(event.getFrom());
+			}
 	}
 
 	@EventHandler()
