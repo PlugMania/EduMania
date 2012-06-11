@@ -65,10 +65,10 @@ public class PlayerListener implements Listener {
 			if (!plugin.util.authPlayer(event.getPlayer(),
 					plugin.util.sit(event.getMessage(), ' ', 1)))
 				event.getPlayer().sendMessage(
-						"[EduMania]Authentication failed.");
+						"[EduMania][ANOK] Authentication failure.");
 			else
 				event.getPlayer().sendMessage(
-						"[EduMania]Authentication succeeded.");
+						"[EduMania][AOK] Authentication success.");
 
 			return;
 		}
@@ -132,8 +132,8 @@ public class PlayerListener implements Listener {
 	}
 
 	@EventHandler()
-	public void onPlayerLogin(PlayerLoginEvent event) {
-		// event.
+	public void onPlayerJoin(PlayerJoinEvent event) {
+		event.getPlayer().sendMessage("[EduMania][AUTH]");
 	}
 
 	@EventHandler()
