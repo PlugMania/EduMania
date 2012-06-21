@@ -83,10 +83,10 @@ public class PlayerListener implements Listener {
 			if (!plugin.util.authPlayer(event.getPlayer(),
 					plugin.util.sit(event.getMessage(), ' ', 1)))
 				event.getPlayer().sendMessage(
-						"[EduMania][ANOK] Authentication failure.");
+						"[EduMania][ANOK]Authentication failure.");
 			else
 				event.getPlayer().sendMessage(
-						"[EduMania][AOK] Authentication success.");
+						"[EduMania][AOK]Authentication success.");
 
 			return;
 		}
@@ -152,6 +152,9 @@ public class PlayerListener implements Listener {
 	@EventHandler()
 	public void onPlayerJoin(PlayerJoinEvent event) {
 		event.getPlayer().sendMessage("[EduMania][AUTH]");
+		if(plugin.getConfig().getBoolean("TexturePack.enable")){
+			event.getPlayer().sendMessage("[EduMania][TXDL]" + plugin.getConfig().getString("TexturePack.URL") + plugin.getConfig().getString("TexturePack.fileName"));
+		}
 	}
 
 	@EventHandler()

@@ -7,4 +7,6 @@ commands:
     auth:
       description: Used to authenticate all connecting clients.
       usage: /auth key
-
+    txdl:
+      description: Used by client to download custom texture pack.
+      usage: /txdl URL|localfilename

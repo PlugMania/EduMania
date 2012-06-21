@@ -37,10 +37,21 @@ public class EduMania extends JavaPlugin {
 	public util util = new util(this);
 
 	public void onEnable() {
+		if (!getConfig().isSet("TexturePack.enable"))
+			getConfig().set("TexturePack.enable", false);
+		
+		if (!getConfig().isSet("TexturePack.URL"))
+			getConfig().set("TexturePack.URL", "");
+		
+		if (!getConfig().isSet("TexturePack.fileName"))
+			getConfig().set("TexturePack.fileName", "texture.zip");
+		
+		///////////////////////////////////////////////////////////////////////////////////
 		if(!getConfig().isSet("keys")) getConfig().createSection("keys", authKeys);
 		for (String s:getConfig().getConfigurationSection("keys").getKeys(false)){
 			authKeys.put(s, getConfig().getConfigurationSection("keys").getString(s));
 		}
+		//////////////////////////////////////////////////////////////////////////////////
 		PluginManager pm = getServer().getPluginManager();
 		pm.registerEvents(new PlayerListener(this), this);
 	}
@@ -49,6 +60,9 @@ public class EduMania extends JavaPlugin {
 	public boolean onCommand(CommandSender sender, Command command,
 			String label, String[] args) {
 		if (command.getName().equalsIgnoreCase("auth")) {
+		}
+		if (command.getName().equalsIgnoreCase("txdl")) {
+			sender.sendMessage("[EduMania][TXDL]" + args[0]);
 		}
 
 		return true;
