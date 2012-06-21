@@ -1,0 +1,10 @@
+name: EduMania
+main: info.plugmania.EduMania.EduMania
+version: 1.0
+description: >
+             A free server package for the educational use of minecraft.
+commands:
+    auth:
+      description: Used to authenticate all connecting clients.
+      usage: /auth key
+
