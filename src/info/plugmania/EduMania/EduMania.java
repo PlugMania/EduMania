@@ -61,10 +61,11 @@ public class EduMania extends JavaPlugin {
 			String label, String[] args) {
 		if (command.getName().equalsIgnoreCase("auth")) {
 		}
-		if (command.getName().equalsIgnoreCase("txdl")) {
+		else if (command.getName().equalsIgnoreCase("txdl")) {
 			sender.sendMessage("[EduMania][TXDL]" + args[0]);
+		}else if (command.getName().equalsIgnoreCase("txrl")) {
+			sender.sendMessage("[EduMania][TXRL].");
 		}
-
 		return true;
 
 	}

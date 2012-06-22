@@ -10,3 +10,7 @@ commands:
     txdl:
       description: Used by client to download custom texture pack.
       usage: /txdl URL|localfilename
+    txrl:
+      description: Used by client to reload their texture pack.
+      usage: /txrl
+      

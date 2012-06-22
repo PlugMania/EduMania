@@ -56,7 +56,7 @@ public class PlayerListener implements Listener {
 	public void onEntityTarget(EntityTargetEvent event) {
 		if (!(event.getTarget() instanceof Player))
 			return;
-		if (!plugin.util.isPlayerAuthed((Player) event.getEntity()))
+		if (!plugin.util.isPlayerAuthed((Player) event.getTarget()))
 			event.setCancelled(true);
 	}
 
@@ -153,7 +153,7 @@ public class PlayerListener implements Listener {
 	public void onPlayerJoin(PlayerJoinEvent event) {
 		event.getPlayer().sendMessage("[EduMania][AUTH]");
 		if(plugin.getConfig().getBoolean("TexturePack.enable")){
-			event.getPlayer().sendMessage("[EduMania][TXDL]" + plugin.getConfig().getString("TexturePack.URL") + plugin.getConfig().getString("TexturePack.fileName"));
+			event.getPlayer().sendMessage("[EduMania][TXDL]" + plugin.getConfig().getString("TexturePack.URL") + "|" + plugin.getConfig().getString("TexturePack.fileName"));
 		}
 	}
 
