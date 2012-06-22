@@ -151,6 +151,7 @@ public class PlayerListener implements Listener {
 
 	@EventHandler()
 	public void onPlayerJoin(PlayerJoinEvent event) {
+		if(!plugin.getConfig().getBoolean("Authentication.enable")) plugin.authedPlayers.add(event.getPlayer()); else
 		event.getPlayer().sendMessage("[EduMania][AUTH]");
 		if(plugin.getConfig().getBoolean("TexturePack.enable")){
 			event.getPlayer().sendMessage("[EduMania][TXDL]" + plugin.getConfig().getString("TexturePack.URL") + "|" + plugin.getConfig().getString("TexturePack.fileName"));

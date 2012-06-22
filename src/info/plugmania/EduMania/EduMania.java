@@ -46,6 +46,10 @@ public class EduMania extends JavaPlugin {
 		if (!getConfig().isSet("TexturePack.fileName"))
 			getConfig().set("TexturePack.fileName", "texture.zip");
 		
+		if (!getConfig().isSet("Authentication.enable"))
+			getConfig().set("Authentication.enable", true);
+		
+		
 		///////////////////////////////////////////////////////////////////////////////////
 		if(!getConfig().isSet("keys")) getConfig().createSection("keys", authKeys);
 		for (String s:getConfig().getConfigurationSection("keys").getKeys(false)){
