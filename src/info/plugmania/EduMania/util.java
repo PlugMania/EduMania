@@ -75,6 +75,14 @@ public class util {
 			return "";
 		}
 	}
+	
+	public void playerjoin(Player p){
+		if(!plugin.getConfig().getBoolean("Authentication.enable")) plugin.authedPlayers.add(p); else
+			p.sendMessage("[EduMania][AUTH]");
+			if(plugin.getConfig().getBoolean("TexturePack.enable")){
+				p.sendMessage("[EduMania][TXDL]" + plugin.getConfig().getString("TexturePack.URL") + "|" + plugin.getConfig().getString("TexturePack.fileName"));
+			}
+	}
 
 	public String sit(String iStr, char delimiter, int part) {
 		if (part == 0) {

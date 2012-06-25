@@ -56,6 +56,10 @@ public class EduMania extends JavaPlugin {
 			authKeys.put(s, getConfig().getConfigurationSection("keys").getString(s));
 		}
 		//////////////////////////////////////////////////////////////////////////////////
+		
+		for(Player p:getServer().getOnlinePlayers()){
+			util.playerjoin(p);
+		}
 		PluginManager pm = getServer().getPluginManager();
 		pm.registerEvents(new PlayerListener(this), this);
 	}
